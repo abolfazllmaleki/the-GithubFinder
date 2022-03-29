@@ -6,9 +6,12 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import { Icon, Tab, Tabs } from '@mui/material';
+import { Icon, LinearProgress, Link, Tab, Tabs } from '@mui/material';
 import { GitHub } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link as Linkee } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
 
 
 function Navbar({make}) {
@@ -16,7 +19,9 @@ function Navbar({make}) {
       window.location.pathname='/'
     }
     const goabout=()=>{
-      window.location.pathname='/about'
+      <Linkee to='/about'>
+      </Linkee>
+      // window.location.pathname='/about'
     }
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -31,8 +36,20 @@ function Navbar({make}) {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} >
                 github finder
               </Typography>
-              <Button color="inherit" onClick={()=>{gohome()}}>Search</Button>
-              <Button color="inherit" onClick={()=>{goabout()}}>About</Button>
+              <Linkee to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+              <Button color='inherit' >
+                <Typography>Search</Typography>
+              </Button>
+              </Linkee>
+              
+                
+              <Linkee to="/about" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+              <Button color='inherit' >
+                <Typography>About</Typography>
+              </Button>
+              </Linkee>
+            
+
               
             </Toolbar>
           </AppBar>

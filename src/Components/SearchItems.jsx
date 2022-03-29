@@ -5,20 +5,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { Skeleton } from '@mui/material';
-
+import { Link as Linkee } from 'react-router-dom';
 
 function SearchItems(props) {
 
     const[namme,setnamme]=useState(null)
 
-    const send=(er)=>{
 
-        
-        props.name(er)
-        window.location.pathname=`/user/${props.nmee}`
-        
-
-    }
   return (<div>
            <Card sx={{ maxWidth: 345 }}>
                  <CardActionArea>
@@ -37,10 +30,15 @@ function SearchItems(props) {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
+                <Linkee to={`/user/${props.nmee}`}style={{ color: 'inherit', textDecoration: 'inherit'}}>
+              <Button size="small" color="primary" >
+                <Typography>visit profile</Typography>
+              </Button>
+              </Linkee>
                     
-                    <Button size="small" color="primary" onClick={()=>send(props.nmee)}>
+                    {/* <Button size="small" color="primary" onClick={()=>send(props.nmee)}>
                     visit profile
-                    </Button>
+                    </Button> */}
                 </CardActions>
             </Card>
         </div>
